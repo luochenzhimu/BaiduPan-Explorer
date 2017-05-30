@@ -1,10 +1,10 @@
 {
 	"manifest_version": 2,
 
-	"name": "baidudl",
-	"short_name": "baidudl",
+	"name": "BaiduPan Explorer",
+	"short_name": "Explorer",
 	"description": "Extract high speed download links from pan.baidu.com. Github: https://github.com/Kyle-Kyle/baidudl",
-	"version": "0.4.0",
+	"version": "1.0.0",
 
 	"web_accessible_resources": [
 		"content_script/injection_listener.js",
