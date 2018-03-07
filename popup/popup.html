@@ -1,8 +1,9 @@
-ï»¿<html>
+<html>
 	<head>
-		<title>BaiduPan Exlorer</title>
+		<title>baidudl</title>
 
 		<script src="/resource/angular.min.js"></script>
+		<script src="/popup/chrome_api.js"></script>
 		<script src="/popup/controller.js"></script>
 	</head>
 
@@ -10,20 +11,30 @@
 		<div id='app'ng-app="app" ng-csp ng-controller='control'>
 			<table ng-hide='!status'>
 				<tr>
-					<td>æ–‡ä»¶å</td>
-					<td>é“¾æ¥</td>
-					<td><button ng-click="generateAll()">GenerateAll</button></td>
-					<td><button ng-click="copyAll('hlink')">CopyAll</button></td>
+					<td>ÎÄ¼şÃû</td>
+					<td>Á´½Ó</td>
+					<td><button style="width: 45px" ng-click="copyAll('dlink')">È«Ñ¡</button></td>
+					<td>Á´½Ó</td>
+					<td><button style="width: 45px" ng-click="copyAll('hlink')">È«Ñ¡</button></td>
 				</tr>
 				<tr ng-repeat="x in links">
-					<td><input style="width: 300px" type='text' value={{x.path}} ng-disabled='true'></td>
-					<td><input style="width: 50px"type='text' value={{x.hlink}} ng-disabled='true'></td>
-					<td><button ng-click="generate($index)">ç”Ÿæˆ</button></td>
-					<td><button ng-click="copy($index, 'hlink')">å¤åˆ¶</button></td>
+					<td><input style="width: 330px" type='text' value={{x.path}} ng-disabled='true'></td>
+					<td><input style="width: 70px" type='text' value={{x.dlink}} ng-disabled='true'></td>
+					<td><button style="width: 45px" ng-click="copy($index, 'dlink')">¸´ÖÆ</button></td>
+					<td><input style="width: 70px" type='text' value={{x.hlink}} ng-disabled='true'></td>
+					<td><button style="width: 45px" ng-click="copy($index, 'hlink')">¸´ÖÆ</button></td>
 				</tr>
-			</table>
+			</table>			
 			<div ng-hide='!status'><button ng-click="prev()">&lt;</button>{{page}}<button ng-click="next()">&gt;</button></div>
 			<p>{{message}}</p>
+			<table id='vcode_table'>				
+				<tr ng-repeat="x in vcodes">
+					<td><img ng-src='https://pan.baidu.com/genimage?{{x.vcode_str}}'></td>
+					<td><input type='text' ng-model='vcode_input'></td>
+					<td><button ng-click="verify(x.vcode_str, vcode_input, x.index)">verify</button></td>
+					<td><button ng-click="verify(x.vcode_str, vcode_input, x.index)">refresh</button></td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>

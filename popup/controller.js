@@ -1,24 +1,38 @@
-// initialize angular model
 var app = angular.module('app', []);
-app.controller('control', ['$scope', function($scope){
+app.controller('control', function($scope, $http){
+	// initialize angular model
 	$scope.message = 'pan.baidu.com only';
 	$scope.status = false;
 	$scope.page = 1;
-	
-	// function to generate high speed link
+	$scope.vcodes = [];
+	$scope.vcode_input = "";
+	$scope.bduss;
+
+	chrome.cookies.get({url: 'https://pan.baidu.com/', name: 'BDUSS'}, function(cookie){
+		$scope.$apply(function(){
+			$scope.bduss = cookie? cookie.value: '';
+		})
+	})
+
+	// function to generate high speed links
 	$scope.generate = function(i){
 		console.log(i);
 		$scope.message = "Running...";
 		var x = $scope.links[i];
 		var fs_id = x.fs_id;
+		var isdir = x.isdir;
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-			chrome.tabs.sendMessage(tabs[0].id, {fs_id: fs_id, index: i});
+			chrome.tabs.sendMessage(tabs[0].id, {fs_id: fs_id, index: i, isdir: isdir});
 		});
 	}
+	// generate hlinks for all files
 	$scope.generateAll = function(){
-		for(var i=0; i<$scope.links.length; i++)$scope.generate(i);
+		for(var i=0; i<$scope.links.length; i++){
+			if(!$scope.links[i].hlink)$scope.generate(i);
+		}
 	}
 	
+	// previous page
 	$scope.prev = function(){
 		if($scope.page == 1){
 			$scope.message = "Already the first page";
@@ -27,6 +41,7 @@ app.controller('control', ['$scope', function($scope){
 		$scope.page -= 1;
 		$scope.run();
 	}
+	// next page
 	$scope.next = function(){
 		if($scope.links.length < 100){
 			$scope.message = "Already the last page";
@@ -35,6 +50,8 @@ app.controller('control', ['$scope', function($scope){
 		$scope.page += 1;
 		$scope.run();
 	}
+
+	// run
 	$scope.run = function(){
 		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 			var url = tabs[0].url;
@@ -87,56 +104,36 @@ app.controller('control', ['$scope', function($scope){
 		else $scope.message = "Copy failure"
 	}
 
-}])
-
-// add listener to handle received download links
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
-	var $scope = angular.element(document.getElementById('app')).scope();
-	if(request.type == "passLinks"){
-		$scope.$apply(function(){
-			if(request.result.feedback != 'Success'){
-				$scope.message = 'It\'s empty!';
-			}else{
-				$scope.links = request.result.links;
-				$scope.status = true;
-			}
+	// do vcode verification
+	$scope.verify = function(vcode_str, vcode_input, index){
+		var x = $scope.links[index];
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(tabs[0].id, {vcode: {vcode_str: vcode_str, vcode_input: vcode_input}, index: index, fs_id: x.fs_id, isdir: x.isdir});
+			$scope.$apply(function(){
+				var vcodes = $scope.vcodes.filter(function(e){
+					return e.vcode_str != vcode_str;
+				})
+				$scope.vcodes = vcodes;
+			});
 		});
-		sendResponse('Success');
 	}
-	if(request.type == "passNewLink"){
-		var hlink = request.result.link;
-		var index = request.result.index;
-		$scope.$apply(function(){
-			$scope.links[index].hlink = hlink;
-			$scope.message = "Ready."
-		})
+
+	$scope.clear = function(){
+		chrome.storage.local.remove('data');
+		$scope.message = "Cache is cleared";
 	}
-	if(request.type == "error"){
-		$scope.$apply(function(){
-			$scope.message = request.result;
-		})
+
+	$scope.download = function(index){
+		if(!$scope.links[index].hlink){
+			$scope.message = 'hlink is not generated';
+			return;
+		}
+		$http.get('http://127.0.0.1:8333/rpc?link='+btoa($scope.links[index].glink)+'&bduss='+$scope.bduss)
+		.then(function(res){
+			$scope.message = 'Done';
+		}, function(res){
+			$scope.message = 'Fail to download. Make sure `aria2` is installed and `baidudl_rpc` is running';
+		});
 	}
 })
-// execute content script
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-	var url = tabs[0].url;
-	try{
-		var domain = url.match(/^[\w-]+:\/{2,}\[?([\w\.:-]+)\]?(?::[0-9]*)?/)[1];
-		console.log(domain);
-		if(domain == 'pan.baidu.com'){
-			var $scope = angular.element(document.getElementById('app')).scope();
-			$scope.$apply(function(){$scope.message = "Ready."});
-			chrome.tabs.sendMessage(tabs[0].id, {greeting: "yes"}, function(response) {
-				if(!response){
-					chrome.tabs.executeScript({file: "content_script/sandbox.js"});
-				}else{
-					chrome.tabs.sendMessage(tabs[0].id, {page: $scope.page}, function(res){
-						console.log(res);
-					})
-				}
-			})
-		}
-	}catch(err){
-		console.log(err);
-	}
-});
+
