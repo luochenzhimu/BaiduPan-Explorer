@@ -1,14 +1,16 @@
 {
 	"manifest_version": 2,
 
-	"name": "BaiduPan Explorer",
-	"short_name": "Explorer",
-	"description": "Extract high speed download links from pan.baidu.com. Github: https://github.com/Kyle-Kyle/baidudl",
-	"version": "1.0.0",
+	"name": "BaiduPan Explorer 百度网盘高速下载链接解析",
+	"short_name": "BaiduPan Explorer",
+	"description": "获取百度网盘高速下载链接. Extract high speed download links from pan.baidu.com. \n Forked from Github: https://github.com/Kyle-Kyle/baidudl",
+	"version": "1.1.0",
 
 	"web_accessible_resources": [
 		"content_script/injection_listener.js",
-		"content_script/injection.js"
+		"content_script/injection.js",
+		"content_script/utilities.js",
+		"resource/jquery.cookie.js"
 	],
 
 	"icons": {
@@ -30,6 +32,14 @@
 	}],
 
 	"permissions": [
-		"activeTab"
+		"activeTab",
+		"storage",
+		"http://127.0.0.1:8333/",
+		"https://pan.baidu.com/",
+		"cookies",
+		"https://d.pcs.baidu.com/",
+		"http://d.pcs.baidu.com/",
+		"webRequest",
+		"webRequestBlocking"
 	]
 }
