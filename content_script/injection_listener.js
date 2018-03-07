@@ -1,35 +1,45 @@
 // retrieve high speed link
-window.addEventListener('receiveFs', function(req){
+window.addEventListener('hlink1', function(req){
 	var fs_id = req.detail.fs_id;
-	$.ajax({
-		type: "POST",
-		url: "/share/set?web=1&channel=chunlei&web=1&bdstoken="+yunData.MYBDSTOKEN+"&clienttype=0",
-		data: "fid_list=%5B"+fs_id+"%5D&schannel=0&channel_list=%5B%5D&period=0",
-		dataType: "json",
-		success: function(d){
-			if(d.errno != 0){
-				console.log(d);
-				var err_msg = "Error: cant't share this file";
-				if(d.errno == 110)err_msg = "Error: this file has been shared too frequently"
-				var event = new CustomEvent("error", {detail: err_msg});
-				window.dispatchEvent(event);
-				return
+	var isdir = req.detail.isdir;
+
+	// share this file
+	share(fs_id, function(res){
+		var shareid = res.shareid;
+
+		// after file is shared, visit the shared file page and read yunData from the page
+		$.ajax({
+			url: res.shorturl,
+			success: function(d){
+
+				// parse yunData from js files
+				var code = d.match(/yunData\.setData\(.*\)/);
+				var data = code[0].substring(16, code[0].length-1);
+				var new_yunData = JSON.parse(data);
+
+				// get hlinks and dispatch it
+				get_hlink(new_yunData, undefined, undefined, req.detail.index, 1, isdir, [new_yunData.file_list.list[0].fs_id], function(link, index){
+					console.log("Link received");
+					var event = new CustomEvent("hlink2", {detail: {link: link, index: index}});
+					window.dispatchEvent(event);
+				})
+
+				// unshare the file
+				unshare(new_yunData.shareid, function(){});
 			}
-			console.log("Share success");
-			var shareid = d.shareid;
-			$.ajax({
-				url: d.shorturl,
-				success: function(d){
-					var code = d.match(/yunData\.setData\(.*\)/);
-					var data = code[0].substring(16, code[0].length-1);
-					var new_yunData = JSON.parse(data);
-					get_hlink(new_yunData, req.detail.index);
-				}
-			})
-		}
-	});
+		})
+	})
 })
 
 window.addEventListener('run', function(req){
+	// inject code
 	injection(req.detail.page);
+})
+
+window.addEventListener('verify', function(req){
+	// vcode verification
+	get_hlink(yunData, 1, req.detail.vcode, req.detail.index, 2, req.detail.isdir, [req.detail.fs_id], function(link, index){
+		var event = new CustomEvent("hlink2", {detail: {link: link, index: index}});
+		window.dispatchEvent(event);
+	});
 })
