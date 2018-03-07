@@ -28,7 +28,7 @@ BaiduNetdisk Home Page：https://pan.baidu.com
 
 Forked from Github: https://github.com/Kyle-Kyle/baidudl
 ## Installation
-**Chrome web store: **https://chrome.google.com/webstore/detail/lncbhecjekffklnelbeninpnacopebcp
+**Chrome web store:** https://chrome.google.com/webstore/detail/lncbhecjekffklnelbeninpnacopebcp
 
 **Offline crx installation package(Chrome web store)：**  
 
