@@ -2,7 +2,7 @@
 BaiduPan Explorer 是一款解析百度网盘高速下载链接的浏览器插件，单文件下载速度不受限制，浏览器单线程下载可以达到1.3MB/s，使用多线程下载器可以将速度提升到带宽上限，文件夹打包下载则速度比较慢，不建议使用打包链接下载。
 
 建议使用迅雷、IDM等多线程下载器下载。
-[Forked from Github: ](https://github.com/Kyle-Kyle/baidudl)  
+
 Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 百度网盘主页：https://pan.baidu.com
