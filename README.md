@@ -21,7 +21,9 @@ GitHub: https://github.com/luochenzhimu/BaiduPan-Explorer/releases/download/1.1.
 百度网盘：https://pan.baidu.com/s/1RKUU5uy_0RD1epwD_tkgIA
 
 谷歌打包的版本不支持国内Chrome内核浏览器，所以重新打包了个，360浏览器(拖放进去)、QQ浏览器(qqbrowser://extensions/manage)等Chrome内核的从这里下载：
+
 石墨直链：https://dn-shimo-attachment.qbox.me/11yHS97JRjwuQBPg/BaiduPan_Explorer.crx
+
 百度网盘：https://pan.baidu.com/s/1iBqd_Gi_-Mlc_7n1rohK6g
 
 ## 软件截图
