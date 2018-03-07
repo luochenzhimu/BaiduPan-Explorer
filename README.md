@@ -3,6 +3,8 @@ BaiduPan Explorer 是一款解析百度网盘高速下载链接的浏览器插�
 
 建议使用迅雷、IDM等多线程下载器下载。
 
+<a href="http://write.blog.csdn.net/postlist" target="_blank">https://github.com/Kyle-Kyle/baidudl</a>
+
 Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 百度网盘主页：https://pan.baidu.com
