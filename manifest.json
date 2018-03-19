@@ -4,7 +4,7 @@
 	"name": "BaiduPan Explorer 百度网盘高速下载链接解析",
 	"short_name": "BaiduPan Explorer",
 	"description": "获取百度网盘高速下载链接. Extract high speed download links from pan.baidu.com. \n Forked from Github: https://github.com/Kyle-Kyle/baidudl",
-	"version": "1.1.0",
+	"version": "1.1.1",
 
 	"web_accessible_resources": [
 		"content_script/injection_listener.js",
