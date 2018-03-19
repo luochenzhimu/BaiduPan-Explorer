@@ -31,7 +31,7 @@ function injection(page){
 
 				// process non-directory files
 				for(var i=0; i<links.length; i++){
-					result.push({dlink: links[i].dlink.replace("d.pcs.baidu.com","yqall02.baidupcs.com"), hlink: "", fs_id: links[i].fs_id, path: dict[links[i].fs_id], isdir: 0});
+					result.push({dlink: links[i].dlink.replace("d.pcs.baidu.com","bjbgp01.baidupcs.com"), hlink: "", fs_id: links[i].fs_id, path: dict[links[i].fs_id], isdir: 0});
 					var index = fidlist.indexOf(links[i].fs_id);
 					fidlist.splice(index, 1);
 				}
