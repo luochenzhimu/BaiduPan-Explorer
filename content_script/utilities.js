@@ -109,8 +109,8 @@ function get_hlink(yunData, extra, vcode, index, type, dir, fidlist, cb){
 				return;
 			}
 			// now we have got hlink
-			if(dir)cb(res.dlink.replace("www.baidupcs.com","yqall02.baidupcs.com"), index);
-			else cb(res.list[0].dlink.replace("d.pcs.baidu.com","yqall02.baidupcs.com"), index);
+			if(dir)cb(res.dlink.replace("www.baidupcs.com","bjbgp01.baidupcs.com"), index);
+			else cb(res.list[0].dlink.replace("d.pcs.baidu.com","bjbgp01.baidupcs.com"), index);
 		}
 	});
 	$.cookie('BAIDUID', BAIDUID)
