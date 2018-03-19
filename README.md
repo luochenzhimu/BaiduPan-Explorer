@@ -14,17 +14,15 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 **应用商店离线包(不会报非应用商店应用错误)：**  
 
-石墨直链：https://dn-shimo-attachment.qbox.me/l93HdJ9SUK00PZJ3/BaiduPan_Explorer.crx
+石墨直链：https://dn-shimo-attachment.qbox.me/V8TAle5pAkoUIZgh/BaiduPan_Explorer_v1.1.1.crx
 
-GitHub: https://github.com/luochenzhimu/BaiduPan-Explorer/releases/download/1.1.0/BaiduPan.Explorer.crx
-
-百度网盘：https://pan.baidu.com/s/1RKUU5uy_0RD1epwD_tkgIA
+百度网盘：https://pan.baidu.com/s/1zYdnu4MI_pEPhryzrjo3Tw
 
 谷歌打包的版本不支持国内Chrome内核浏览器，所以重新打包了个，360浏览器(拖放进去)、QQ浏览器(qqbrowser://extensions/manage)等Chrome内核的从这里下载：
 
-石墨直链：https://dn-shimo-attachment.qbox.me/11yHS97JRjwuQBPg/BaiduPan_Explorer.crx
+石墨直链：https://dn-shimo-attachment.qbox.me/JoihXPDgmJUAVN0q/BaiduPan_Explorer_Kernel_v1.1.1.crx
 
-百度网盘：https://pan.baidu.com/s/1iBqd_Gi_-Mlc_7n1rohK6g
+百度网盘：https://pan.baidu.com/s/1zYdnu4MI_pEPhryzrjo3Tw
 
 ## 软件截图
 ![a screenshot](https://wx4.sinaimg.cn/large/77c76f11gy1fp45wtz796j20zk0m8dn4.jpg)
@@ -40,11 +38,9 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 **Offline crx installation package(Chrome web store)：**  
 
-Shimo download link: https://dn-shimo-attachment.qbox.me/l93HdJ9SUK00PZJ3/BaiduPan_Explorer.crx
+Shimo download link: https://dn-shimo-attachment.qbox.me/V8TAle5pAkoUIZgh/BaiduPan_Explorer_v1.1.1.crx
 
-GitHub: https://github.com/luochenzhimu/BaiduPan-Explorer/releases/download/1.1.0/BaiduPan.Explorer.crx
-
-BaiduNetdisk：https://pan.baidu.com/s/1RKUU5uy_0RD1epwD_tkgIA
+BaiduNetdisk：https://pan.baidu.com/s/1zYdnu4MI_pEPhryzrjo3Tw
 
 ## Screenshot
 ![a screenshot](https://wx4.sinaimg.cn/large/77c76f11gy1fp45wtz796j20zk0m8dn4.jpg)
