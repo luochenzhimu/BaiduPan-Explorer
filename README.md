@@ -16,7 +16,7 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 石墨直链：https://dn-shimo-attachment.qbox.me/V8TAle5pAkoUIZgh/BaiduPan_Explorer_v1.1.1.crx
 
-百度网盘：https://pan.baidu.com/s/1zYdnu4MI_pEPhryzrjo3Tw
+百度网盘：https://pan.baidu.com/s/1VuatyshwtzdN6qy85d5IPQ
 
 谷歌打包的版本不支持国内Chrome内核浏览器，所以重新打包了个，360浏览器(拖放进去)、QQ浏览器(qqbrowser://extensions/manage)等Chrome内核的从这里下载：
 
@@ -40,7 +40,7 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 Shimo download link: https://dn-shimo-attachment.qbox.me/V8TAle5pAkoUIZgh/BaiduPan_Explorer_v1.1.1.crx
 
-BaiduNetdisk：https://pan.baidu.com/s/1zYdnu4MI_pEPhryzrjo3Tw
+BaiduNetdisk：https://pan.baidu.com/s/1VuatyshwtzdN6qy85d5IPQ
 
 ## Screenshot
 ![a screenshot](https://wx4.sinaimg.cn/large/77c76f11gy1fp45wtz796j20zk0m8dn4.jpg)
