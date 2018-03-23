@@ -141,7 +141,7 @@ function get_dlink(sign, fidlist, cb){
 
 // get path parameter from url
 function getURLParameter(name) {
-	var x = location.hash.split('/\/|\?/');
+	var x = location.hash.split('/');
 	var y = x[x.length-1].split('&')
 	for(var i=0; i<y.length; i++){
 		var e = y[i];
