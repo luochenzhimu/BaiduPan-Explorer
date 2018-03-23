@@ -14,7 +14,7 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 **应用商店离线包(不会报非应用商店应用错误)：**  
 
-石墨直链：https://dn-shimo-attachment.qbox.me/iFN1MzWFRkoqsIUv/BaiduPan_Explorer_v1.1.2.crx
+石墨直链：https://dn-shimo-attachment.qbox.me/OC8gYcWM41gluBEb/BaiduPan_Explorer_v1.1.3.crx
 
 百度网盘：https://pan.baidu.com/s/1VuatyshwtzdN6qy85d5IPQ
 
@@ -33,7 +33,7 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 **Offline crx installation package(Chrome web store)：**  
 
-Shimo download link: https://dn-shimo-attachment.qbox.me/iFN1MzWFRkoqsIUv/BaiduPan_Explorer_v1.1.2.crx
+Shimo download link: https://dn-shimo-attachment.qbox.me/OC8gYcWM41gluBEb/BaiduPan_Explorer_v1.1.3.crx
 
 BaiduNetdisk：https://pan.baidu.com/s/1VuatyshwtzdN6qy85d5IPQ
 
