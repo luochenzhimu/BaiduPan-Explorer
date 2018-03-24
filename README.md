@@ -18,6 +18,11 @@ Forked from Github: https://github.com/Kyle-Kyle/baidudl
 
 百度网盘：https://pan.baidu.com/s/1VuatyshwtzdN6qy85d5IPQ
 
+**Chrome内核浏览器版(针对旧版Chrome内核浏览器不兼容提示安装包无效)：**
+
+石墨直链：https://dn-shimo-attachment.qbox.me/14o9wpX7GUM9Kwpt/BaiduPan_Explorer_v1.1.3_Kernel.crx
+
+百度网盘：https://pan.baidu.com/s/1zYdnu4MI_pEPhryzrjo3Tw
 
 ## 软件截图
 ![a screenshot](https://wx4.sinaimg.cn/large/77c76f11gy1fp45wtz796j20zk0m8dn4.jpg)
