@@ -13,16 +13,13 @@
 				<tr>
 					<td>文件名</td>
 					<td>链接</td>
-					<td><button style="width: 45px" ng-click="copyAll('dlink')">全选</button></td>
-					<td>链接</td>
 					<td><button style="width: 45px" ng-click="copyAll('hlink')">全选</button></td>
 				</tr>
 				<tr ng-repeat="x in links">
-					<td><input style="width: 330px" type='text' value={{x.path}} ng-disabled='true'></td>
-					<td><input style="width: 70px" type='text' value={{x.dlink}} ng-disabled='true'></td>
-					<td><button style="width: 45px" ng-click="copy($index, 'dlink')">复制</button></td>
-					<td><input style="width: 70px" type='text' value={{x.hlink}} ng-disabled='true'></td>
+					<td><input style="width: 500px" type='text' value={{x.path}} ng-disabled='true'></td>
+					<td><input style="width: 150px" type='text' value={{x.hlink}} ng-disabled='true'></td>
 					<td><button style="width: 45px" ng-click="copy($index, 'hlink')">复制</button></td>
+					<td><button style="width: 45px" ng-click="generate($index)">生成</button></td>
 				</tr>
 			</table>			
 			<div ng-hide='!status'><button ng-click="prev()">&lt;</button>{{page}}<button ng-click="next()">&gt;</button></div>
